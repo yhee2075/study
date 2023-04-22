@@ -5,35 +5,47 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="stylesheet" href="teststyle.css" />
   </head>
   <body>
-    <h1>회원가입</h1>
+    <header><h1>회원가입</h1></header>
+    <br />
     <h2>필수 입력 사항</h2>
-    <form action="/">
-      <strong><label for="id">ID</label></strong>
-      <input type="text" id="id" name="id" placeholder="아이디 10글자 이내" />
-      <input type="submit" value="중복 확인" />
-      <br />
+    <form id="form1" action="#">
+      <div>
+        <strong><label for="id">ID</label></strong>
+        <input type="text" id="id" name="id" placeholder="아이디 10글자 이내" maxlength="10" />
+        <input type="button" value="중복 확인" />
+        <br />
 
-      <strong><label for="password">비밀번호</label></strong>
-      <input type="password" id="password" name="password" placeholder="영문,숫자,특수문자 포함 8자 이상" />
-      <br />
+        <strong><label for="password">비밀번호</label></strong>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          placeholder="영문,숫자,특수문자 포함 8자 이상"
+          minlength="8"
+        />
+        <br />
 
-      <strong><label for="password check">비밀번호 확인</label></strong>
-      <input type="password" id="password check" name="password check" />
-      <br />
+        <strong><label for="passwordcheck">비밀번호 확인</label></strong>
+        <input type="password" id="passwordcheck" name="passwordcheck" />
+        <br />
 
-      <strong><label for="email">Email</label></strong>
-      <input type="email" id="email" name="email" />
-      <select>
-        <option>직접입력</option>
-        <option>naver.com</option>
-        <option>daum.net</option>
-        <option>gmail.com</option>
-      </select>
-    </form>
-    <h2>추가 정보</h2>
-    <form>
+        <strong><label for="email">Email</label></strong>
+        <input type="email" id="email" name="email" />
+
+        <select>
+          <option>직접입력</option>
+          <option>naver.com</option>
+          <option>daum.net</option>
+          <option>gmail.com</option>
+        </select>
+      </div>
+      <br /><br /><br />
+
+      <h2>추가 정보</h2>
+
       프로필 사진<input type="file" accept="image/*" />
       <br />
       <br />
@@ -43,7 +55,7 @@
       <label for="gender">남자</label>
       <input type="radio" id="gender2" name="gender" />
       <label for="gender2">여자</label>
-      <br />
+      <br /><br />
 
       생년월일 : <input type="date" />
       <br />
@@ -73,10 +85,10 @@
       자기소개
       <br />
       <textarea rows="10" cols="60"></textarea>
-      <br />
+      <br /><br />
 
-      <input type="submit" value="회원가입" />
-      <input type="button" value="다시입력" />
+      <button>회원가입</button>
+      <button type="reset">다시입력</button>
       <input type="button" value="이전으로" />
     </form>
   </body>
