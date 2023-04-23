@@ -6,7 +6,7 @@
     <title>Document</title>
   </head>
   <body>
-    <h1>h1</h1>
+    <!-- <h1>h1</h1>
     <h2>h2</h2>
     <h3>h3</h3>
     <h4>h4</h4>
@@ -41,5 +41,43 @@
       <dt>오렌지</dt>
       <dd>과일이다</dd>
     </dl>
+    <iframe
+      width="560"
+      height="315"
+      src="https://www.youtube.com/embed/aNJwPoN2S9Y"
+      title="YouTube video player"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen
+    ></iframe> -->
+    <form action="none" method="post">
+      <label for="name">이름 :</label>
+      <input type="text" id="name" name="name" required />
+      <br /><br />
+
+      <label for="email">이메일 :</label>
+      <input type="email" id="email" name="email" />
+      <br /><br />
+
+      <label for="password">비밀번호 :</label>
+      <input type="password" id="password" name="password" />
+      <br /><br />
+
+      <input type="submit" value="제출" />
+      <input type="reset" />
+      <br /><br />
+
+      <input type="checkbox" id="과일" name="과일" />
+      <label for="과일">바나나</label>
+      <br />
+
+      <input type="radio" id="class1" name="class" />
+      <label for="class1">1반</label>
+      <input type="radio" id="class2" name="class" />
+      <label for="class2">2반</label>
+      <br /><br />
+
+      <input type="file" />
+    </form>
   </body>
 </html>
