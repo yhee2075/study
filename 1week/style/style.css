@@ -1,0 +1,15 @@
+body {
+  color: red;
+}
+h1 {
+  color: black;
+}
+.pc {
+  display: none;
+}
+
+@media (min-width: 800px) {
+  .pc {
+    display: block;
+  }
+}
