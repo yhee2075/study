@@ -1,0 +1,91 @@
+@charset "utf-8";
+/*주석*/
+@import url('https://fonts.googleapis.com/css2?family=Hahmlet:wght@200&family=Nanum+Gothic&display=swap');
+
+/* common */
+* {
+  padding: 0;
+  margin: 0;
+  font-family: 'IBM Plex Sans KR', sans-serif;
+  box-sizing: border-box;
+}
+
+body {
+  height: 1000px;
+}
+
+h1 a {
+  font-size: 40px;
+  position: absolute;
+  top: 30px;
+  color: #000;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+header {
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  background-color: #fbf7d7;
+}
+
+.blog-list-wrap {
+  padding-bottom: 100px;
+  line-height: 20px;
+}
+
+main {
+  margin: 0 auto;
+  padding: 30px;
+  max-width: 768px;
+}
+
+.title {
+  padding-bottom: 20px;
+  border-bottom: 2px solid #bab9b9;
+}
+
+main li {
+  padding: 20px;
+  padding-bottom: 40px;
+  width: 100%;
+  border: 2px solid #e9e9e9;
+  border-radius: 20px;
+  box-shadow: 5px 5px 5px grey;
+}
+
+footer {
+  padding: 50px;
+  text-align: center;
+  color: #fff;
+  background-color: #bab9b9;
+}
+
+nav ul li {
+  width: 80px;
+  text-align: center;
+  gap: 20px;
+  padding: 10px;
+  border-radius: 10px;
+  background: #fff;
+}
+
+.blog {
+  color: #c04545;
+  font-weight: bold;
+}
+
+.news {
+  color: #c04545;
+  font-weight: bold;
+}
