@@ -1,0 +1,97 @@
+@charset "utf-8";
+
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300&display=swap');
+
+body {
+  margin: 30px;
+  font-family: 'IBM Plex Sans KR', sans-serif;
+}
+
+.main {
+  width: 798px;
+  height: 1000px;
+  background-color: rgb(199, 237, 252);
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  height: 60px;
+  margin-bottom: 30px;
+  background-color: rgb(199, 237, 252);
+}
+
+li {
+  list-style: none;
+  display: inline;
+  justify-content: end;
+}
+
+a {
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 600;
+  color: rgb(75, 75, 75);
+}
+
+.wrap {
+  justify-content: center;
+  max-width: 768px;
+  margin: 15px;
+  padding: 10px;
+  background-color: #fff;
+}
+
+p {
+  display: inline;
+  padding: 20px;
+}
+
+h2 {
+  display: inline-block;
+  width: 32.3%;
+  text-align: center;
+  border: 2px solid #c0c0c0;
+}
+
+.select {
+  display: inline-block;
+  width: 100%;
+  gap: 0;
+}
+
+div strong {
+  color: rgb(22, 76, 203);
+}
+
+h3 {
+  padding-bottom: 10px;
+  border-bottom: 3px solid rgb(199, 237, 252);
+}
+
+nav ul li {
+  border: #c0c0c0 2px solid;
+  border-radius: 1px;
+}
+
+nav a {
+  width: 100px;
+  color: rgb(75, 75, 75);
+  display: inline-block;
+  text-align: center;
+}
+
+.email {
+  font-size: 30px;
+}
+
+#now-select {
+  color: #fff;
+}
+
+.now-select {
+  background-color: rgb(78, 97, 203);
+  border: 3px solid rgb(78, 97, 203);
+}
