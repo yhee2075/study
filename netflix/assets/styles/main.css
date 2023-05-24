@@ -1,5 +1,8 @@
 @charset "utf-8";
 
+body {
+  background: #000;
+}
 .flex-box {
   display: flex;
   align-items: center;
@@ -82,9 +85,31 @@ header ul li a:hover {
 
 .visual .text-box .btn-box {
   gap: 5px;
+  padding-top: 20px;
 }
 
 .visual .text-box .btn-box button:nth-child(2) {
   background-color: rgba(255, 255, 255, 0.3);
+  color: #fff;
+}
+
+.profile-wrap img {
+  border-radius: 3px;
+}
+
+.select-img {
+  display: flex;
+  gap: 10px;
+  height: 230px;
+}
+
+div.select-img img {
+  width: 400px;
+  border-radius: 2px;
+}
+
+h2 {
+  padding-top: 40px;
+  font-size: larger;
   color: #fff;
 }
