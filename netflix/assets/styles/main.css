@@ -1,0 +1,90 @@
+@charset "utf-8";
+
+.flex-box {
+  display: flex;
+  align-items: center;
+}
+
+img {
+  width: 100%;
+  max-width: 100%;
+}
+
+header {
+  height: 68px;
+}
+
+header h1.logo {
+  width: 92.5px;
+  justify-content: center;
+}
+
+header h1.logo a {
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+}
+
+header {
+  justify-content: space-between;
+  padding: 0 18px;
+  background-color: #000;
+}
+
+header nav ul {
+  gap: 40px;
+}
+
+header .main-menu-wrap {
+  gap: 40px;
+}
+
+header ul.profile-wrap {
+  gap: 15px;
+}
+
+header ul li a {
+  color: #fff;
+}
+
+header ul li a:hover {
+  opacity: 0.8;
+  transition: 0.5s;
+}
+
+.visual {
+  position: relative;
+}
+
+.visual .text-box {
+  position: absolute;
+  top: 50%;
+  left: 18px;
+  transform: translateY(-50%);
+  width: 40%;
+  color: #fff;
+}
+
+.visual .text-box .img-box {
+  margin-bottom: 20px;
+}
+
+.visual .text-box {
+  line-height: 1.3;
+}
+
+.visual .text-box .btn-box button {
+  width: 100%;
+  padding: 10px 5px 8px;
+  border-radius: 5px;
+  background: #fff;
+}
+
+.visual .text-box .btn-box {
+  gap: 5px;
+}
+
+.visual .text-box .btn-box button:nth-child(2) {
+  background-color: rgba(255, 255, 255, 0.3);
+  color: #fff;
+}
