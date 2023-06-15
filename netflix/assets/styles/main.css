@@ -1,5 +1,9 @@
 @charset "utf-8";
 
+.swiper-zoom-container {
+  width: 600px;
+  height: 300px;
+}
 body {
   background: #000;
 }
@@ -83,6 +87,10 @@ header ul li a:hover {
   background: #fff;
 }
 
+.visual .text-box .btn-box button:hover {
+  opacity: 0.8;
+}
+
 .visual .text-box .btn-box {
   gap: 5px;
   padding-top: 20px;
@@ -97,19 +105,30 @@ header ul li a:hover {
   border-radius: 3px;
 }
 
-.select-img {
-  display: flex;
-  gap: 10px;
-  height: 230px;
-}
-
 div.select-img img {
-  width: 400px;
   border-radius: 2px;
 }
 
 h2 {
-  padding-top: 40px;
+  padding-bottom: 20px;
+  padding-top: 60px;
+  padding-left: 10px;
   font-size: larger;
   color: #fff;
+}
+
+.swiper-button-next {
+  opacity: 0;
+}
+
+.swiper-button-next:hover {
+  opacity: 1;
+}
+
+.swiper-button-prev {
+  opacity: 0;
+}
+
+.swiper-button-prev:hover {
+  opacity: 1;
 }
