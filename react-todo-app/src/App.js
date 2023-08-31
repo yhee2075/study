@@ -1,6 +1,6 @@
 // import = HTML link
 
-import React, {Component} from 'react';
+import React, {useState} from 'react';
 import './App.css';
 
 /**
@@ -19,7 +19,7 @@ import './App.css';
  *
  */
 
-export default class App extends Component {
+export default function App() {
   /**
    *
    * state = 랜더링 결과물에 영향을 주는 데이터를 갖고 있는 객체
@@ -27,12 +27,15 @@ export default class App extends Component {
    * 변경 시 리랜더링 되도록 변경 내용에 setState 사용
    *
    */
-  state = {
-    todoData: [],
-    value: '',
-  };
 
-  btnStyle = {
+  const [todoData, setTodoData] = [];
+  const [value, setValue] = '';
+  // state = {
+  //   todoData: [],
+  //   value: '',
+  // };
+
+  const btnStyle = {
     color: '#fff',
     border: 'none',
     padding: '5px 9px',
@@ -41,7 +44,7 @@ export default class App extends Component {
     float: 'right',
   };
 
-  getStyle = completed => {
+  const getStyle = completed => {
     return {
       padding: '10px',
       borderBottom: '1px #ccc dotted',
@@ -49,19 +52,19 @@ export default class App extends Component {
     };
   };
 
-  handleChange = e => {
+  const handleChange = e => {
     //입력창에 입력 시 입력된 값 = e.target.value
     // console.log('e', e.target.value);
 
     //23번 state에 설정한 value값을 e.target.value로 재지정
-    this.setState({value: e.target.value});
+    setValue(e.target.value);
   };
 
-  handleClick = id => {
+  const handleClick = id => {
     //data.id = 클릭한 버튼의 아이디
     // '===' > 동일 '!==' > 아닌 경우
-    let newTodoData = this.state.todoData.filter(data => data.id !== id);
-    this.setState({todoData: newTodoData});
+    let newTodoData = todoData.filter(data => data.id !== id);
+    setTodoData(newTodoData);
   };
 
   /**
@@ -72,7 +75,7 @@ export default class App extends Component {
    *
    */
 
-  handleSubmit = e => {
+  const handleSubmit = e => {
     e.preventDefault();
     //form안에 input을 전송될 때 페이지 리로드 되는 걸 막아줌
 
@@ -80,18 +83,19 @@ export default class App extends Component {
     // id는 고유한 1개의 값을 줘야 하므로, 현재 시각으로 임의 지정
     let newTodo = {
       id: Date.now(),
-      title: this.state.value,
+      title: value,
       completed: false,
     };
 
     // 2. 기존 목록에 새로운 할 일 데이터를 추가
-    // [...this.state.todoData(기존 목록), newTodo(새로운 할 일)]
+    //prev => setState 되기 이전의 state를 가져옴
+    setTodoData(prev => [...prev, newtodo]);
     // value:'' > submit 후 입력창 입력 내용 삭제
-    this.setState({todoData: [...this.state.todoData, newTodo], value: ''});
+    setValue('');
   };
 
-  handlecompleChange = id => {
-    let newTodoData = this.state.todoData.map(data => {
+  const handlecompleChange = id => {
+    let newTodoData = todoData.map(data => {
       // 만약 클릭한 버튼의 id라면
       if (data.id === id) {
         //해당 id의 completed를 반대로 변경
@@ -101,46 +105,44 @@ export default class App extends Component {
       return data;
     });
     // 변경된 completed값으로 리랜더링
-    this.setState({todoData: newTodoData});
+    setTodoData(newTodoData);
   };
 
-  render() {
-    return (
-      <div className="container">
-        <div className="todoBlock">
-          <div className="title">
-            <h1>할 일 목록</h1>
-          </div>
-          {this.state.todoData.map(data => (
-            <div style={this.getStyle(data.completed)} key={data.id}>
-              <input type="checkbox" defaultChecked={false} onChange={() => this.handlecompleChange(data.id)} />
-              {data.title}
-              {/* 
+  return (
+    <div className="container">
+      <div className="todoBlock">
+        <div className="title">
+          <h1>할 일 목록</h1>
+        </div>
+        {todoData.map(data => (
+          <div style={getStyle(data.completed)} key={data.id}>
+            <input type="checkbox" defaultChecked={false} onChange={() => handlecompleChange(data.id)} />
+            {data.title}
+            {/* 
                   1. 버튼을 누른다 > onClick 이벤트 발생
                   2. 내가 누른 버튼에 해당하는 id는 삭제되고
                   3. 누르지 않은 버튼의 id는 그대로 리스트에 있어야 함 
                      > filter로 누르지 않은 id만 골라내서 리스트 재생성
                       ( 재생성된 리스트 이름=newTodoData => let으로 선언 )
               */}
-              <button style={this.btnStyle} onClick={() => this.handleClick(data.id)}>
-                X
-              </button>
-            </div>
-          ))}
+            <button style={btnStyle} onClick={() => handleClick(data.id)}>
+              X
+            </button>
+          </div>
+        ))}
 
-          <form style={{display: 'flex'}} onSubmit={this.handleSubmit}>
-            <input
-              type="text"
-              name="value"
-              style={{flex: '10', padding: '5px'}}
-              placeholder="해야 할 일을 입력하세요."
-              onChange={this.handleChange}
-              value={this.state.value}
-            />
-            <input type="submit" value="입력" className="btn" style={{flex: '1'}} />
-          </form>
-        </div>
+        <form style={{display: 'flex'}} onSubmit={handleSubmit}>
+          <input
+            type="text"
+            name="value"
+            style={{flex: '10', padding: '5px'}}
+            placeholder="해야 할 일을 입력하세요."
+            onChange={handleChange}
+            value={value}
+          />
+          <input type="submit" value="입력" className="btn" style={{flex: '1'}} />
+        </form>
       </div>
-    );
-  }
+    </div>
+  );
 }
