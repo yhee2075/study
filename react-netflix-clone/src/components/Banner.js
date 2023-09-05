@@ -2,6 +2,7 @@ import axios from '../api/axios';
 import React, {useState, useEffect} from 'react';
 import requests from '../api/requests';
 import './Banner.css';
+import {styled} from 'styled-components';
 
 /**
  * TODO: useEffect 사용 방법
@@ -17,6 +18,7 @@ import './Banner.css';
 
 export default function Banner() {
   const [movie, setmovie] = useState([]);
+  const [isClicked, setisClicked] = useState(false);
   useEffect(() => {
     fetchData();
   }, []);
@@ -50,7 +52,7 @@ export default function Banner() {
     console.log('영화 ID =>', movieId);
 
     const {data: movieDetail} = await axios.get(`movie/${movieId}`, {
-      params: {append_to_reponse: 'videos'},
+      params: {append_to_response: 'videos'},
     });
     setmovie(movieDetail);
   };
@@ -61,26 +63,78 @@ export default function Banner() {
     return str?.length > n ? str.substr(0, n - 1) + '...' : str;
   };
 
-  return (
-    <header
-      className="banner"
-      style={{
-        // 영화 이미지 파일명 불러오기
-        backgroundImage: `url("https://image.tmdb.org/t/p/original/${movie.backdrop_path}")`,
-        backgroundPosition: 'top center',
-        backgroundSize: 'cover',
-      }}
-    >
-      <div className="banner__contents">
-        <h1 className="banne__title">{movie.title || movie.name || movie.original_name}</h1>
-        <div className="banner__buttons">
-          <button className="banner__button play">play</button>
-          <button className="banner__button info">More Information</button>
-        </div>
+  // TODO: Q. useClicked 초깃값 false의 !(반대) true ??
+  if (!isClicked) {
+    return (
+      <header
+        className="banner"
+        style={{
+          // 영화 이미지 파일명 불러오기
+          backgroundImage: `url("https://image.tmdb.org/t/p/original/${movie.backdrop_path}")`,
+          backgroundPosition: 'top center',
+          backgroundSize: 'cover',
+        }}
+      >
+        <div className="banner__contents">
+          <h1 className="banne__title">{movie.title || movie.name || movie.original_name}</h1>
+          <div className="banner__buttons">
+            <button className="banner__button play" onClick={() => setisClicked(true)}>
+              play
+            </button>
+            <button className="banner__button info">More Information</button>
+          </div>
 
-        <h1 className="banner__description">{truncate(movie.overview, 100)}</h1>
-      </div>
-      <div className="banner--fadeBottom" />
-    </header>
-  );
+          <h1 className="banner__description">{truncate(movie.overview, 100)}</h1>
+        </div>
+        <div className="banner--fadeBottom" />
+      </header>
+    );
+  } else {
+    return (
+      <Container>
+        <HomeContainer>
+          <Iframe
+            width="640"
+            height="360"
+            src={`https://www.youtube.com/embed/${movie.videos.results[0].key}?controls=0&autoplay=1&loop=1&mute=1&playlist=${movie.videos.results[0].key}`}
+            title="YouTube video player"
+            frameborder="0"
+            allow="autoplay; fullscreen"
+            allowfullscreen
+          ></Iframe>
+        </HomeContainer>
+      </Container>
+    );
+  }
 }
+
+// styled components 라이브러리 사용
+const Iframe = styled.iframe`
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  border: none;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+`;
+
+const Container = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100vh;
+`;
+
+const HomeContainer = styled.div`
+  width: 100%;
+  height: 100%;
+`;
