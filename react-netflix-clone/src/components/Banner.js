@@ -62,6 +62,7 @@ export default function Banner() {
     // 문자가 n 보다 작을 경우, 처음부터 n-1번째 만큼 반환 후 '...' 출력하고 아니면 문자 그대로 출력
     return str?.length > n ? str.substr(0, n - 1) + '...' : str;
   };
+  // console.log('영화 정보 =>', movie.videos.results[0]);
 
   // TODO: Q. useClicked 초깃값 false의 !(반대) true ??
   if (!isClicked) {
