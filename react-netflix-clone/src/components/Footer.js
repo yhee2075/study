@@ -80,7 +80,7 @@ const FooterLink = styled.a`
 `;
 
 const FooterDescContainer = styled.div`
-  mairgin-top: 30px;
+  margin-top: 30px;
   @media (max-width: 768px) {
     margin-top: 20px;
   }
