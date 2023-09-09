@@ -10,6 +10,8 @@ h2 {
 }
 .slider {
   position: relative;
+  top: 0;
+  height: 100px;
 }
 .slider__arrow-left {
   background-clip: content-box;
@@ -26,7 +28,6 @@ h2 {
   display: flex;
   align-items: center;
   justify-content: center;
-  visibility: hidden;
 }
 .slider__arrow-right {
   padding: 20px 0;
@@ -43,7 +44,6 @@ h2 {
   display: flex;
   align-items: center;
   justify-content: center;
-  visibility: hidden;
 }
 .arrow {
   transition: 400ms all ease-in-out;
