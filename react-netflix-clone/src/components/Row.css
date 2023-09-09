@@ -10,8 +10,6 @@ h2 {
 }
 .slider {
   position: relative;
-  top: 0;
-  height: 100px;
 }
 .slider__arrow-left {
   background-clip: content-box;
