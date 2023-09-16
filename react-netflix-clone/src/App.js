@@ -1,8 +1,5 @@
 import './App.css';
 import Nav from './components/Nav';
-import Banner from './components/Banner';
-import requests from './api/requests';
-import Row from './components/Row';
 import Footer from './components/Footer';
 import {Outlet, Routes, Route} from 'react-router-dom';
 import MainPage from './pages/MainPage';
