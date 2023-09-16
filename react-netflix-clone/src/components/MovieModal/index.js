@@ -1,6 +1,7 @@
 import React from 'react';
 import './MovieModal.css';
 
+//TODO: Q. () 파라미터 여러개가 들어가서 {} 추가?
 const MovieModal = ({
   backdrop_path,
   title,

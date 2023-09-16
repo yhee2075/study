@@ -42,7 +42,7 @@ export default function Banner() {
     /** 여러 영화 중(request.data.results) 영화 하나의 ID를 랜덤(Math.floor(Math.random() * max);)으로 가져오기
      */
 
-    //length => 최대값(최대 길이)
+    //length => 최대값(최대 길이) => 가져온 영화 목록 전체 갯수
     const movieId = request.data.results[Math.floor(Math.random() * request.data.results.length)].id;
 
     // 특정 영화의 상세정보 가져오기 (비디오 정보 포함)
@@ -71,6 +71,7 @@ export default function Banner() {
         className="banner"
         style={{
           // 영화 이미지 파일명 불러오기
+          //TODO: Q. `` 위치
           backgroundImage: `url("https://image.tmdb.org/t/p/original/${movie.backdrop_path}")`,
           backgroundPosition: 'top center',
           backgroundSize: 'cover',
