@@ -1,5 +1,6 @@
-import React from 'react';
+import React, {useRef, useCallback} from 'react';
 import './MovieModal.css';
+import useOnClickOutside from '../../hooks/useOnClickOutside';
 
 //TODO: Q. () 파라미터 여러개가 들어가서 {} 추가?
 const MovieModal = ({
@@ -12,10 +13,16 @@ const MovieModal = ({
   vote_average,
   setModalOpen,
 }) => {
+  const ref = useRef();
+
+  useOnClickOutside(ref, () => {
+    setModalOpen(false);
+  });
+
   return (
     <div className="presentation">
       <div className="wrapper-modal">
-        <div className="modal">
+        <div className="modal" ref={ref}>
           <span onClick={() => setModalOpen(false)} className="modal-close">
             X
           </span>
