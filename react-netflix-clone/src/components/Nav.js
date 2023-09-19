@@ -25,7 +25,7 @@ export default function Nav() {
     setSearchValue(e.target.value);
     navigate(`/search?q=${e.target.value}`);
   };
-  console.log(window.location);
+  console.log('window.location', window.location);
 
   return (
     <nav className={`nav ${show && 'nav__black'}`}>
@@ -33,7 +33,7 @@ export default function Nav() {
         alt="Netflix logo"
         src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg"
         className="nav__logo"
-        onClick={() => window.location.reload()}
+        onClick={() => navigate('/')}
       />
       <input
         value={searchValue}
