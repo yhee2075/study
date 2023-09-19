@@ -1,6 +1,7 @@
 import axios from '../../api/axios';
 import {useParams} from 'react-router-dom';
 import {useEffect, useState} from 'react';
+import './DetailPage.css';
 
 export default function DetailePage() {
   const {movieId} = useParams();
@@ -11,7 +12,7 @@ export default function DetailePage() {
     async function fetchData() {
       const request = await axios.get(`/movie/${movieId}`);
       setMovie(request.data);
-      console.log('request', request);
+      console.log(movie.title);
     }
     fetchData();
   }, [movieId]);
@@ -25,6 +26,9 @@ export default function DetailePage() {
         src={`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`}
         alt="poster"
       />
+      <h2 className="title">{movie.title ? movie.title : movie.name}</h2>
+      <p className="overview"> 평점 : {movie.vote_average}</p>
+      <p className="overview">{movie.overview}</p>
     </section>
   );
 }

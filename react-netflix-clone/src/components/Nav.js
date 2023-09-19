@@ -25,7 +25,6 @@ export default function Nav() {
     setSearchValue(e.target.value);
     navigate(`/search?q=${e.target.value}`);
   };
-  console.log('window.location', window.location);
 
   return (
     <nav className={`nav ${show && 'nav__black'}`}>
